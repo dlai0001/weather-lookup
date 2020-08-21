@@ -37,3 +37,8 @@ dlai@MacBook-Pro invisible % npm run weather "Los Angeles" "Tokyo" 90210
                 pressure: 1008
             
 ```
+
+# Available commands
+* `npm run weather <location1> <location2> ...` - Get the weather for those locations.  Location can be a City in quotes, ex: `"Los Angeles"` or a US zip code `90210`
+* `npm run weather:debug <location1> <location2> ...` - Run get weather with node debugger enabled.
+* `npm test` - Run unit tests

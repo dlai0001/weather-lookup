@@ -5,6 +5,7 @@
   "main": "weather.js",
   "scripts": {
     "test": "jest",
+    "test:debug": "node --inspect-brk ./node_modules/.bin/jest",
     "weather": "ts-node index.ts",
     "weather:debug": "node --inspect-brk ./node_modules/.bin/ts-node index.ts"
   },

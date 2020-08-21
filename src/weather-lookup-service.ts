@@ -1,4 +1,4 @@
-import {DateTime} from 'luxon'
+import { DateTime } from 'luxon'
 import * as fetchImport from 'isomorphic-unfetch'
 
 // Work around for typescript types not being correct.
@@ -10,7 +10,7 @@ const API_URL = 'http://api.openweathermap.org/data/2.5/weather'
 export type WeatherEntry = {
     description: string; // clear sky
     temperature: number; // Converted to F°
-    pressure: number; 
+    pressure: number;
     humidity: number;
     windSpeed: number;
     localTime: string;
@@ -36,21 +36,24 @@ export const getWeather: (location: string) => Promise<WeatherEntry> = async (lo
             timezoneName: jsonResult.name,
         }
 
-    } catch (err) {
-        console.error('Unable error fetch weather', err)
+    } catch (err) {        
+        // Normally I could log this to error console.  But keeping it commented out for the sake of
+        // keeping the console clean for this exercies.
+        // console.error(`Unable to fetch weather for: ${location}`, err)
+
         throw new Error('Unable to find weather')
     }
 }
 
-const getLookupParams = (location:string) => {
+const getLookupParams = (location: string) => {
     const isZipCode = /^\d{5}(-\d+)?$/.test(location)
 
-    if(isZipCode) {
+    if (isZipCode) {
         return `zip=${location},us`
     }
     return `q=${encodeURIComponent(location)}`
 }
 
 const kelvenToFahrenheit = (kelvins: number) => {
-    return (kelvins - 273.15) *  (9/5) + 32
+    return (kelvins - 273.15) * (9 / 5) + 32
 }
