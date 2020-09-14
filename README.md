@@ -8,33 +8,32 @@ Author: David Lai
 4. run `npm run weather "Name of City"|ZIP_CODE` ex: `npm run weather "Los Angeles" "Tokyo" 90210`
 You should get an output of the weather data and time at location.
 ```
-dlai@MacBook-Pro invisible % npm run weather "Los Angeles" "Tokyo" 90210
+dlai@MacBook-Pro weather % npm run weather "Los Angeles" "Tokyo" 90210
 
 > ts-node index.ts "Los Angeles" "Tokyo" "90210"
 
-
                 location: Los Angeles 
-                time: 17:24 (Los Angeles)
-                clear sky
-                temperature: 74.05 F°,
-                humidity: 65
-                pressure: 1007
+                time: 07:57 (Los Angeles)
+                haze
+                temperature: 62.60 F°,
+                humidity: 77
+                pressure: 1014
             
 
                 location: Tokyo 
-                time: 17:24 (Tokyo)
-                few clouds
-                temperature: 96.57 F°,
-                humidity: 59
-                pressure: 1011
+                time: 23:57 (Tokyo)
+                broken clouds
+                temperature: 73.44 F°,
+                humidity: 88
+                pressure: 1013
             
 
                 location: 90210 
-                time: 17:24 (Beverly Hills)
-                clear sky
-                temperature: 74.19 F°,
+                time: 07:57 (Beverly Hills)
+                mist
+                temperature: 62.60 F°,
                 humidity: 88
-                pressure: 1008
+                pressure: 1015
             
 ```
 
