@@ -31,7 +31,7 @@ describe('getWeather', () => {
             .spyOn(global.Date, 'now')
             .mockImplementationOnce(() => new Date(`2010`).valueOf());
 
-        (fetch as any).mockReturnValue(Promise.reject())
+        (fetch as any).mockReturnValue(Promise.reject());
 
         const result = await getWeather('Moscow')
 
@@ -43,9 +43,9 @@ describe('getWeather', () => {
             windSpeed: 1,
             localTime: '12:00',
             timezoneName: 'Moscow'
-        })
+        });
 
-    })
+    });
 })
 
 

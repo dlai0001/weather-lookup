@@ -26,13 +26,16 @@ export const getWeather: (location: string) => Promise<WeatherEntry> = async (lo
         const weatherResult = await fetch(`${API_URL}?${apiParams}&appid=${API_KEY}`)
         const jsonResult = await weatherResult.json()
 
+        const timezoneOffset = jsonResult.timezone/60; // API returns timezone in seconds
+
+
         return {
             description: jsonResult.weather[0]?.description,
             temperature: kelvenToFahrenheit(jsonResult.main.temp),
             humidity: jsonResult.main.humidity,
             pressure: jsonResult.main.pressure,
             windSpeed: jsonResult.wind?.speed,
-            localTime: DateTime.local().setZone(jsonResult.timezone).toFormat('HH:mm'),
+            localTime: DateTime.local().toUTC(timezoneOffset).toFormat('HH:mm'),
             timezoneName: jsonResult.name,
         }
 
